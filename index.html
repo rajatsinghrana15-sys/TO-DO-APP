@@ -3,36 +3,68 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To-Do App</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>My To-Do List</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div class="navbar">
-        Rajat's Project
-    </div>
-    <div class="container">
-      <div class="upper-section">
-        <h1>To-Do App</h1>
+    <div class="app-container">
+      <header>
+        <h1>To-Do List</h1>
+        <div class="date-display" id="dateDisplay"></div>
+      </header>
 
-        <div class="input-box">
-          <input type="text" id="taskInput" placeholder="Enter a task"/>
-          <button onclick="addTask()">Add</button>
-        </div>
+      <div class="input-group">
+        <input
+          type="text"
+          id="taskInput"
+          placeholder="What needs to be done?"
+        />
+        <button id="addBtn">Add</button>
       </div>
 
-      <div class="lower-section">
-        <h2>LIST</h2>
-        <ol  id="taskList"></ol>
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="pending">Pending</button>
+        <button class="filter-btn" data-filter="completed">Done</button>
       </div>
-      <div class="back-1"></div>
-      <div class="back-2"></div>
-      <div class="back-3"></div>
-      <div class="back-4"></div>
-      <div class="back-5"></div>
-      <img id="img-1" src="b1e28b0ff55e21251452749b10548b20.png" alt="">
-      <img id="img-2" src="114579-mario-hd-image-free.png" alt="">
+
+      <ul id="taskList">
+        <!-- Tasks will appear here -->
+      </ul>
+
+      <div class="empty-state" id="emptyState" style="display: none">
+        <i class="fas fa-clipboard-list"></i>
+        <p>No tasks yet!</p>
+      </div>
+
+      <div class="stats">
+        <span id="pendingCount">0 items left</span>
+        <button class="clear-all" id="clearAllBtn">Clear Completed</button>
+      </div>
     </div>
+
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
 
     <script src="script.js"></script>
+
+    <!-- Shake animation for empty input -->
+    <style>
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-5px);
+        }
+        75% {
+          transform: translateX(5px);
+        }
+      }
+    </style>
   </body>
 </html>
